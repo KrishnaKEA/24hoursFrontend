@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="container">
+		<h2>Add candidate here</h2>
+		<form action="#" onsubmit="return false">
+			<label for="name">Name</label>
+			<input type="text" id="name" placeholder="Candidate's name" />
+			<br />
+			<br />
+
+			<label for="position"> Select Position</label>
+			<select name="positions" class="position-class">
+				<option value="Member">Member</option>
+				<option value="Mayer">Mayer</option>
+				<option value="Secretory">Secretory</option>
+				<option value="Spokes person">Spokes person</option>
+			</select>
+			<br />
+			<br />
+			<label for="parties">Select Party</label>
+			<select name="partyName" class="party-class">
+				<option value="Socialdemokratiet">Socialdemokratiet</option>
+				<option value="Det konservative Folkeparti">
+					Det konservative Folkeparti
+				</option>
+				<option value="Socialistisk Folkeparti">Socialistisk Folkeparti</option>
+				<option value="Dansk Folkeparti">Dansk Folkeparti</option>
+				<option value="Venstre, Danmarks Liberale Parti">
+					Venstre, Danmarks Liberale Parti
+				</option>
+				<option value="Enhedslisten + De Rød Grønne">
+					Enhedslisten + De Rød Grønne
+				</option>
+			</select>
+			<br />
+			<br />
+      <br>
+			<button type="submit" id="submit">Add Candidate</button>
+		</form>
+	</div>
+</div>
+
+<style>
+	body {
+		background-color:rgb(109, 109, 109);
+	}
+	input,
+	select {
+		width: 100%;
+	}
+
+	.card {
+		background-color: skyblue;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		transition: 0.3s;
+		width: 40%;
+		margin-left: 20%;
+		margin-top: 10%;
+	}
+
+	.card:hover {
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	.container {
+		padding: 2px 16px;
+	}
+</style>

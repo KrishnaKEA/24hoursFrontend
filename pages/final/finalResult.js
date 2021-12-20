@@ -1,9 +1,9 @@
 export default () => {
 	const content = document.querySelector(".content");
 
-	fetch("./pages/about/about.html")
+	return fetch("./pages/final/finalResult.html")
 		.then((response) => response.text())
-		.then((aboutHtml) => {
-			content.innerHTML = aboutHtml;
+		.then((loginHtml) => {
+			content.innerHTML = loginHtml;
 		});
 };

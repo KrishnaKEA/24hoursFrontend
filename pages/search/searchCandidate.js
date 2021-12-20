@@ -1,9 +1,9 @@
 export default () => {
 	const content = document.querySelector(".content");
 
-	return fetch("./pages/login/login.html")
+	return fetch("./pages/search/searchCandidate.html")
 		.then((response) => response.text())
-		.then((loginHtml) => {
-			content.innerHTML = loginHtml;
+		.then((mainHtml) => {
+			content.innerHTML = mainHtml;
 		});
 };

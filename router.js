@@ -1,7 +1,7 @@
-import renderMain from "./pages/main/main.js";
-import renderAbout from "./pages/about/about.js";
-import renderUser from "./pages/user/user.js";
-import renderLogin from "./pages/login/login.js";
+import renderSearch from "./pages/search/searchCandidate.js";
+import renderAddCandidate from "./pages/add/addCandidate.js";
+import renderCandidates from "./pages/candidate/candidate.js";
+import renderfinalResult from "./pages/final/finalResult.js";
 
 export default function () {
 	window.router = new Navigo("/", { hash: true });
@@ -11,16 +11,16 @@ export default function () {
 			"/": () => {
 				// call updatePageLinks to let navigo handle the links
 				// when new links have been inserted into the dom
-				renderMain().then(router.updatePageLinks);
+				renderSearch().then(router.updatePageLinks);
 			},
-			about: () => {
-				renderAbout();
+			add: () => {
+				renderAddCandidate();
 			},
 			login: () => {
-				renderLogin();
+				renderfinalResult();
 			},
-			user: () => {
-				renderUser();
+			candidate: () => {
+				renderCandidates();
 			},
 		})
 		.resolve();
