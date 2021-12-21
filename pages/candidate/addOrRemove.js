@@ -1,12 +1,14 @@
 export default () => {
 	const updateButton = document.querySelector(".update");
 	const removeButton = document.querySelector(".remove");
+
 	updateButton.addEventListener("click", () => {
 		const selectedName = document.querySelector(".select").value;
 		fetch(`http://localhost:8080/api/candidates/find/${selectedName}`)
 			.then((Response) => Response.json())
 			.then((candidate) => {
 				const id = candidate.id;
+
 				const divElement = document.querySelector(".show-form");
 				const inputName = document.createElement("input");
 				inputName.setAttribute("class", "edited-name");
@@ -50,9 +52,6 @@ export default () => {
 				console.log(error);
 			});
 	});
-    removeButton.addEventListener("click",()=>{
-        
-    })
 
 	fetch("http://localhost:8080/api/candidates")
 		.then((Response) => Response.json())
@@ -106,4 +105,27 @@ export default () => {
 				console.error("Error:", error);
 			});
 	}
+	function removeCandidate(id) {
+		fetch(`http://localhost:8080/api/candidates/${id}`, {
+			method: "DELETE",
+		})
+			.then((response) => response.text())
+			.then((movieData) => {
+				alert("Successfully deleted");
+				location.reload();
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+			});
+	}
+
+	removeButton.addEventListener("click", () => {
+		const nameToDelete = document.querySelector(".select").value;
+		fetch(`http://localhost:8080/api/candidates/find/${nameToDelete}`)
+			.then((Response) => Response.json())
+			.then((candidate) => {
+				const id = candidate.id;
+				removeCandidate(id);
+			});
+	});
 };
