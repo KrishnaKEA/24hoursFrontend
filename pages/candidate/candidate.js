@@ -1,3 +1,4 @@
+import addOrRemove from "./addOrRemove.js";
 export default () => {
 	const content = document.querySelector(".content");
 
@@ -5,48 +6,10 @@ export default () => {
 		.then((response) => response.text())
 		.then((userHtml) => {
 			content.innerHTML = userHtml;
-			fetchCandidates();
+			addOrRemove();
 		});
 
-	function fetchCandidates() {
-		fetch("http://localhost:8080/api/candidates")
-			.then((Response) => Response.json())
-			.then((candidates) => {
-				candidates.forEach((candidate) => {
-					displayCandidates(candidate);
-				});
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}
-
-	function displayCandidates(candidate) {
-		const candidateUl = document.querySelector(".candidate-ul");
-		const idLi = document.createElement("li");
-		idLi.innerHTML = `Id: ${candidate.id}`;
-		candidateUl.appendChild(idLi);
-		const nameLi = document.createElement("li");
-		nameLi.innerHTML = `Name: ${candidate.name}`;
-		candidateUl.appendChild(nameLi);
-		const positionLi = document.createElement("li");
-		positionLi.innerHTML = `Position: ${candidate.position}`;
-		candidateUl.appendChild(positionLi);
-		const partyNameLi = document.createElement("li");
-		partyNameLi.innerHTML = `Party Name: ${candidate.partyname}`;
-		candidateUl.appendChild(partyNameLi);
-		const updateBtn = document.createElement("button");
-		updateBtn.innerText = "Update";
-		//updateBtnArray.push(updateBtn);
-		candidateUl.appendChild(updateBtn);
-		const removeBtn = document.createElement("button");
-		removeBtn.innerText = "Remove";
-		removeBtn.setAttribute("class", "remove-class");
-		//removeBtnArray.push(removeBtn);
-		candidateUl.appendChild(removeBtn);
-		const hrLi = document.createElement("hr");
-		candidateUl.appendChild(hrLi);
-	}
+	
 
 	/*
 	function addStudent(studentData) {
