@@ -1,3 +1,5 @@
+import final from "./final.js";
+
 export default () => {
 	const content = document.querySelector(".content");
 
@@ -5,5 +7,7 @@ export default () => {
 		.then((response) => response.text())
 		.then((loginHtml) => {
 			content.innerHTML = loginHtml;
+			final();
+
 		});
 };
